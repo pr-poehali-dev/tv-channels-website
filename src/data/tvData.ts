@@ -1,24 +1,24 @@
 export const CHANNELS = [
-  { id: 1, name: "Первый канал", category: "Новости", number: 1, color: "#1a90ff", emoji: "📺", description: "Главный федеральный канал России", programs: ["Новости", "Время", "Поле чудес", "Голос"] },
-  { id: 2, name: "Россия 1", category: "Новости", number: 2, color: "#ff2d55", emoji: "🎙️", description: "Крупнейший государственный телеканал", programs: ["Вести", "60 минут", "Прямой эфир", "Танцы со звёздами"] },
-  { id: 3, name: "НТВ", category: "Новости", number: 3, color: "#ff9f0a", emoji: "📡", description: "Общенациональный информационный канал", programs: ["Сегодня", "Следствие вели", "Мороз по коже"] },
-  { id: 4, name: "Рен ТВ", category: "Кино", number: 4, color: "#bf5af2", emoji: "🎬", description: "Развлекательный и информационный", programs: ["Добров в эфире", "Военная тайна", "Документальный спецпроект"] },
-  { id: 5, name: "СТС", category: "Развлечения", number: 5, color: "#30d158", emoji: "🎭", description: "Семейный развлекательный канал", programs: ["Сватьи", "Молодежка", "Американские сериалы"] },
-  { id: 6, name: "ТНТ", category: "Развлечения", number: 6, color: "#ff9f0a", emoji: "😄", description: "Молодёжный развлекательный канал", programs: ["Универ", "Физрук", "Битва экстрасенсов", "Дом 2"] },
-  { id: 7, name: "Пятый канал", category: "Новости", number: 7, color: "#1a90ff", emoji: "📰", description: "Новости и аналитика", programs: ["Сейчас", "Место происшествия", "Детективы"] },
-  { id: 8, name: "ТВЦ", category: "Новости", number: 8, color: "#ff2d55", emoji: "🏙️", description: "Московский городской канал", programs: ["События", "Право голоса", "Москва. Инструкция"] },
-  { id: 9, name: "Матч ТВ", category: "Спорт", number: 9, color: "#30d158", emoji: "⚽", description: "Главный спортивный канал России", programs: ["Футбол России", "Хоккей", "UFC", "Формула 1"] },
-  { id: 10, name: "Россия 24", category: "Новости", number: 10, color: "#1a90ff", emoji: "🌍", description: "Круглосуточный новостной канал", programs: ["Вести в 20:00", "Специальный репортаж", "Картина мира"] },
-  { id: 11, name: "Карусель", category: "Детский", number: 11, color: "#ff9f0a", emoji: "🎠", description: "Детский образовательный канал", programs: ["Маша и Медведь", "Смешарики", "Лунтик", "Фиксики"] },
-  { id: 12, name: "2×2", category: "Развлечения", number: 12, color: "#bf5af2", emoji: "✌️", description: "Канал анимации и молодёжного контента", programs: ["Симпсоны", "Футурама", "Американский папаша"] },
-  { id: 13, name: "Культура", category: "Культура", number: 13, color: "#bf5af2", emoji: "🎨", description: "Телеканал о культуре и искусстве", programs: ["Новости культуры", "Театр на экране", "Документальное кино"] },
-  { id: 14, name: "ОТР", category: "Новости", number: 14, color: "#30d158", emoji: "📻", description: "Общественное телевидение России", programs: ["Отражение", "Малые города России", "Большая страна"] },
-  { id: 15, name: "ТВ-3", category: "Кино", number: 15, color: "#ff2d55", emoji: "🔮", description: "Мистика, фантастика и приключения", programs: ["Сверхъестественное", "Зеркало", "Загадки человечества"] },
-  { id: 16, name: "Муз-ТВ", category: "Музыка", number: 16, color: "#ff9f0a", emoji: "🎵", description: "Музыкальный развлекательный канал", programs: ["Топ-клипы", "Фактор А", "Суперстар"] },
-  { id: 17, name: "RU.TV", category: "Музыка", number: 17, color: "#1a90ff", emoji: "🎤", description: "Канал русской музыки", programs: ["Хит-парад", "Золотые хиты", "Живой концерт"] },
-  { id: 18, name: "Пятница!", category: "Развлечения", number: 18, color: "#ff2d55", emoji: "🎉", description: "Развлечения, путешествия и лайфстайл", programs: ["Орёл и решка", "Ревизорро", "Секретный миллионер"] },
-  { id: 19, name: "Disney", category: "Детский", number: 19, color: "#1a90ff", emoji: "🏰", description: "Детский развлекательный канал", programs: ["Микки Маус", "Монстр Хай", "Violetta"] },
-  { id: 20, name: "МИР", category: "Новости", number: 20, color: "#30d158", emoji: "🌐", description: "Межгосударственная телерадиокомпания", programs: ["Мир. События недели", "Большая страна", "Мир кино"] },
+  { id: 1, name: "Первый канал", category: "Новости", number: 1, color: "#1a90ff", emoji: "📺", description: "Главный федеральный канал России", programs: ["Новости", "Время", "Поле чудес", "Голос"], stream: "https://edge1.1internet.tv/dash-live2/streams/1tv-dvr/1tvdash.mpd", streamType: "dash" as const },
+  { id: 2, name: "Россия 1", category: "Новости", number: 2, color: "#ff2d55", emoji: "🎙️", description: "Крупнейший государственный телеканал", programs: ["Вести", "60 минут", "Прямой эфир", "Танцы со звёздами"], stream: "http://31.148.48.15/Russia_1_HD/index.m3u8", streamType: "hls" as const },
+  { id: 3, name: "НТВ", category: "Новости", number: 3, color: "#ff9f0a", emoji: "📡", description: "Общенациональный информационный канал", programs: ["Сегодня", "Следствие вели", "Мороз по коже"], stream: "http://31.148.48.15/NTV_HD/index.m3u8", streamType: "hls" as const },
+  { id: 4, name: "Рен ТВ", category: "Кино", number: 4, color: "#bf5af2", emoji: "🎬", description: "Развлекательный и информационный", programs: ["Добров в эфире", "Военная тайна", "Документальный спецпроект"], stream: "http://31.148.48.15/Ren_TV_HD/index.m3u8", streamType: "hls" as const },
+  { id: 5, name: "СТС", category: "Развлечения", number: 5, color: "#30d158", emoji: "🎭", description: "Семейный развлекательный канал", programs: ["Сватьи", "Молодежка", "Американские сериалы"], stream: "http://31.148.48.15/STS_HD/index.m3u8", streamType: "hls" as const },
+  { id: 6, name: "ТНТ", category: "Развлечения", number: 6, color: "#ff9f0a", emoji: "😄", description: "Молодёжный развлекательный канал", programs: ["Универ", "Физрук", "Битва экстрасенсов", "Дом 2"], stream: "http://31.148.48.15/TNT_HD/index.m3u8", streamType: "hls" as const },
+  { id: 7, name: "Пятый канал", category: "Новости", number: 7, color: "#1a90ff", emoji: "📰", description: "Новости и аналитика", programs: ["Сейчас", "Место происшествия", "Детективы"], stream: "http://31.148.48.15/5_Kanal_HD/index.m3u8", streamType: "hls" as const },
+  { id: 8, name: "ТВЦ", category: "Новости", number: 8, color: "#ff2d55", emoji: "🏙️", description: "Московский городской канал", programs: ["События", "Право голоса", "Москва. Инструкция"], stream: "http://31.148.48.15/TVC_HD/index.m3u8", streamType: "hls" as const },
+  { id: 9, name: "Матч ТВ", category: "Спорт", number: 9, color: "#30d158", emoji: "⚽", description: "Главный спортивный канал России", programs: ["Футбол России", "Хоккей", "UFC", "Формула 1"], stream: "http://31.148.48.15/Match_HD/index.m3u8", streamType: "hls" as const },
+  { id: 10, name: "Россия 24", category: "Новости", number: 10, color: "#1a90ff", emoji: "🌍", description: "Круглосуточный новостной канал", programs: ["Вести в 20:00", "Специальный репортаж", "Картина мира"], stream: "http://31.148.48.15/Russia_24_HD/index.m3u8", streamType: "hls" as const },
+  { id: 11, name: "Карусель", category: "Детский", number: 11, color: "#ff9f0a", emoji: "🎠", description: "Детский образовательный канал", programs: ["Маша и Медведь", "Смешарики", "Лунтик", "Фиксики"], stream: "http://31.148.48.15/Karusel_HD/index.m3u8", streamType: "hls" as const },
+  { id: 12, name: "2×2", category: "Развлечения", number: 12, color: "#bf5af2", emoji: "✌️", description: "Канал анимации и молодёжного контента", programs: ["Симпсоны", "Футурама", "Американский папаша"], stream: "http://31.148.48.15/2x2/index.m3u8", streamType: "hls" as const },
+  { id: 13, name: "Культура", category: "Культура", number: 13, color: "#bf5af2", emoji: "🎨", description: "Телеканал о культуре и искусстве", programs: ["Новости культуры", "Театр на экране", "Документальное кино"], stream: "http://31.148.48.15/Russia_K_HD/index.m3u8", streamType: "hls" as const },
+  { id: 14, name: "ОТР", category: "Новости", number: 14, color: "#30d158", emoji: "📻", description: "Общественное телевидение России", programs: ["Отражение", "Малые города России", "Большая страна"], stream: "http://31.148.48.15/OTR_HD/index.m3u8", streamType: "hls" as const },
+  { id: 15, name: "ТВ-3", category: "Кино", number: 15, color: "#ff2d55", emoji: "🔮", description: "Мистика, фантастика и приключения", programs: ["Сверхъестественное", "Зеркало", "Загадки человечества"], stream: "http://31.148.48.15/TV3_HD/index.m3u8", streamType: "hls" as const },
+  { id: 16, name: "Муз-ТВ", category: "Музыка", number: 16, color: "#ff9f0a", emoji: "🎵", description: "Музыкальный развлекательный канал", programs: ["Топ-клипы", "Фактор А", "Суперстар"], stream: "http://31.148.48.15/Muz_TV_HD/index.m3u8", streamType: "hls" as const },
+  { id: 17, name: "RU.TV", category: "Музыка", number: 17, color: "#1a90ff", emoji: "🎤", description: "Канал русской музыки", programs: ["Хит-парад", "Золотые хиты", "Живой концерт"], stream: "http://31.148.48.15/RU_TV_HD/index.m3u8", streamType: "hls" as const },
+  { id: 18, name: "Пятница!", category: "Развлечения", number: 18, color: "#ff2d55", emoji: "🎉", description: "Развлечения, путешествия и лайфстайл", programs: ["Орёл и решка", "Ревизорро", "Секретный миллионер"], stream: "http://31.148.48.15/Friday_HD/index.m3u8", streamType: "hls" as const },
+  { id: 19, name: "Звезда", category: "Новости", number: 19, color: "#ff9f0a", emoji: "⭐", description: "Телеканал Министерства обороны РФ", programs: ["Новости дня", "Военная приёмка", "Не факт"], stream: "http://31.148.48.15/Zvezda_HD/index.m3u8", streamType: "hls" as const },
+  { id: 20, name: "МИР", category: "Новости", number: 20, color: "#30d158", emoji: "🌐", description: "Межгосударственная телерадиокомпания", programs: ["Мир. События недели", "Большая страна", "Мир кино"], stream: "http://31.148.48.15/Mir_HD/index.m3u8", streamType: "hls" as const },
 ];
 
 export const SCHEDULE = [
@@ -50,5 +50,5 @@ export const RECOMMENDATIONS = [
   { title: "Универ. Новая общага", channel: "ТНТ", time: "13:00", tag: "Сериал", hot: false },
 ];
 
-export type Page = "home" | "catalog" | "schedule" | "favorites" | "search" | "profile" | "contacts";
+export type Page = "home" | "catalog" | "schedule" | "favorites" | "search" | "profile" | "contacts" | "player";
 export type Channel = typeof CHANNELS[0];

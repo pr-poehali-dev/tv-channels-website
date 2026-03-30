@@ -10,10 +10,11 @@ export function LiveBadge() {
   );
 }
 
-export function ChannelCard({ channel, isFavorite, onToggleFavorite }: {
+export function ChannelCard({ channel, isFavorite, onToggleFavorite, onPlay }: {
   channel: Channel;
   isFavorite: boolean;
   onToggleFavorite: (id: number) => void;
+  onPlay?: (id: number) => void;
 }) {
   const [hovered, setHovered] = useState(false);
   return (
@@ -21,6 +22,7 @@ export function ChannelCard({ channel, isFavorite, onToggleFavorite }: {
       className="glow-card rounded-xl bg-card p-4 relative overflow-hidden cursor-pointer animate-fade-in"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={() => onPlay?.(channel.id)}
     >
       <div
         className="absolute inset-0 opacity-5 rounded-xl"
@@ -51,11 +53,19 @@ export function ChannelCard({ channel, isFavorite, onToggleFavorite }: {
           </button>
         </div>
         <p className="text-muted-foreground text-xs mb-3 line-clamp-1">{channel.description}</p>
-        <div
-          className="text-xs px-2 py-1 rounded-full inline-block font-medium"
-          style={{ background: `${channel.color}22`, color: channel.color }}
-        >
-          {channel.category}
+        <div className="flex items-center justify-between">
+          <div
+            className="text-xs px-2 py-1 rounded-full inline-block font-medium"
+            style={{ background: `${channel.color}22`, color: channel.color }}
+          >
+            {channel.category}
+          </div>
+          {hovered && (
+            <div className="flex items-center gap-1 text-neon-blue text-xs font-medium animate-fade-in">
+              <Icon name="Play" size={12} />
+              Смотреть
+            </div>
+          )}
         </div>
         {hovered && (
           <div className="mt-3 space-y-1 animate-fade-in">

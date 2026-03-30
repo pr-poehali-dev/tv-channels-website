@@ -4,10 +4,11 @@ import { ChannelCard, LiveBadge } from "@/components/tv/ChannelCard";
 import { CHANNELS, SCHEDULE, CATEGORIES, RECOMMENDATIONS, type Page } from "@/data/tvData";
 
 // ===== HOME PAGE =====
-export function HomePage({ onNavigate, favorites, onToggleFavorite }: {
+export function HomePage({ onNavigate, favorites, onToggleFavorite, onPlay }: {
   onNavigate: (p: Page) => void;
   favorites: number[];
   onToggleFavorite: (id: number) => void;
+  onPlay?: (id: number) => void;
 }) {
   return (
     <div className="space-y-8">
@@ -104,7 +105,7 @@ export function HomePage({ onNavigate, favorites, onToggleFavorite }: {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {CHANNELS.slice(0, 8).map((ch, i) => (
             <div key={ch.id} className={`stagger-${Math.min(i + 1, 6)}`}>
-              <ChannelCard channel={ch} isFavorite={favorites.includes(ch.id)} onToggleFavorite={onToggleFavorite} />
+              <ChannelCard channel={ch} isFavorite={favorites.includes(ch.id)} onToggleFavorite={onToggleFavorite} onPlay={onPlay} />
             </div>
           ))}
         </div>
@@ -114,7 +115,7 @@ export function HomePage({ onNavigate, favorites, onToggleFavorite }: {
 }
 
 // ===== CATALOG PAGE =====
-export function CatalogPage({ favorites, onToggleFavorite }: { favorites: number[]; onToggleFavorite: (id: number) => void }) {
+export function CatalogPage({ favorites, onToggleFavorite, onPlay }: { favorites: number[]; onToggleFavorite: (id: number) => void; onPlay?: (id: number) => void }) {
   const [activeCategory, setActiveCategory] = useState("Все");
   const [searchQ, setSearchQ] = useState("");
 
@@ -158,7 +159,7 @@ export function CatalogPage({ favorites, onToggleFavorite }: { favorites: number
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
         {filtered.map((ch, i) => (
           <div key={ch.id} className={`stagger-${Math.min(i + 1, 6)}`}>
-            <ChannelCard channel={ch} isFavorite={favorites.includes(ch.id)} onToggleFavorite={onToggleFavorite} />
+            <ChannelCard channel={ch} isFavorite={favorites.includes(ch.id)} onToggleFavorite={onToggleFavorite} onPlay={onPlay} />
           </div>
         ))}
         {filtered.length === 0 && (
@@ -225,7 +226,7 @@ export function SchedulePage() {
 }
 
 // ===== FAVORITES PAGE =====
-export function FavoritesPage({ favorites, onToggleFavorite }: { favorites: number[]; onToggleFavorite: (id: number) => void }) {
+export function FavoritesPage({ favorites, onToggleFavorite, onPlay }: { favorites: number[]; onToggleFavorite: (id: number) => void; onPlay?: (id: number) => void }) {
   const favChannels = CHANNELS.filter(c => favorites.includes(c.id));
   return (
     <div>
@@ -243,7 +244,7 @@ export function FavoritesPage({ favorites, onToggleFavorite }: { favorites: numb
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {favChannels.map((ch, i) => (
             <div key={ch.id} className={`stagger-${Math.min(i + 1, 6)}`}>
-              <ChannelCard channel={ch} isFavorite={true} onToggleFavorite={onToggleFavorite} />
+              <ChannelCard channel={ch} isFavorite={true} onToggleFavorite={onToggleFavorite} onPlay={onPlay} />
             </div>
           ))}
         </div>
@@ -253,7 +254,7 @@ export function FavoritesPage({ favorites, onToggleFavorite }: { favorites: numb
 }
 
 // ===== SEARCH PAGE =====
-export function SearchPage() {
+export function SearchPage({ onPlay }: { onPlay?: (id: number) => void }) {
   const [query, setQuery] = useState("");
 
   const results = useMemo(() => {
@@ -298,12 +299,13 @@ export function SearchPage() {
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {results.channels.map(ch => (
-                  <div key={ch.id} className="glow-card bg-card rounded-xl p-3 flex items-center gap-3">
+                  <div key={ch.id} className="glow-card bg-card rounded-xl p-3 flex items-center gap-3 cursor-pointer" onClick={() => onPlay?.(ch.id)}>
                     <span className="text-2xl">{ch.emoji}</span>
-                    <div>
+                    <div className="flex-1">
                       <div className="font-semibold text-sm">{ch.name}</div>
                       <div className="text-xs text-muted-foreground">{ch.category}</div>
                     </div>
+                    <Icon name="Play" size={14} className="text-neon-blue" />
                   </div>
                 ))}
               </div>
